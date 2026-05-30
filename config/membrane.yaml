@@ -1,0 +1,47 @@
+# ============================================================================
+# membrane.yaml  —  HUMAN-OWNED.  The system reads this file; it NEVER writes it.
+# ============================================================================
+# This is the permission membrane: what Keava Owent can REACH. The whole safety
+# design rests on this file living OUTSIDE what the system can modify. Only you,
+# the operator, edit it. The system cannot widen its own reach — that is the
+# corrigibility guarantee, made concrete.
+#
+# Everything you must fill in is marked REPLACE_ME. The system runs with the
+# placeholders (email falls back to a local outbox), but configure these before
+# pointing it at real infrastructure.
+
+working_dir: "working"        # DRAFT mode may write only here
+canonical_dir: "canonical"    # LOCK mode may write only here, with approval
+
+# --- The v1 boundary: closed circuit -----------------------------------------
+# When false, the system may email YOU and act on working files, but may NOT
+# email other people. It cannot flip this itself; only you can. Leave it false
+# for v1. Turning it true still requires per-action human approval for each
+# outbound message to a third party.
+allow_outbound_to_others: false
+
+# Actions that always require explicit human approval before they run.
+high_impact_kinds:
+  - delete_file
+  - overwrite_canonical
+  - install_package
+  - email_other_person
+  - network_call
+
+# --- Email: the message bus (the spine) --------------------------------------
+email:
+  # The address the system reads operator intents/verdicts FROM (inbound).
+  inbound_address: "REPLACE_ME@your-new-domain"
+  # The address the system sends FROM (outbound). With SendGrid this is the
+  # authenticated sender on your Namecheap-managed domain.
+  outbound_address: "REPLACE_ME@your-new-domain"
+  # Where the system sends its reports TO (you).
+  operator_address: "REPLACE_ME@your-operator-inbox"
+  # ONLY these senders are ever read. This is the trust boundary that also
+  # closes the prompt-injection risk: the system never acts on mail from anyone
+  # not on this list. Keep it tight.
+  read_allowlist:
+    - "REPLACE_ME@your-operator-inbox"
+  # Local fallbacks (used until SendGrid is configured). Safe to leave as-is.
+  local_outbox: "data/outbox.jsonl"
+  local_inbox: "data/inbox.jsonl"
