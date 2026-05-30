@@ -1,0 +1,12 @@
+# Operating limits and cadence.
+# cadence_seconds: how often the loop wakes. 1800 = every 30 minutes, a sane
+# default for an email-paced 'check, do useful work, report' rhythm. Lower it
+# for a more responsive system; raise it to consume less.
+cadence_seconds: 1800
+
+# Timezone is informational for the skeleton (the loop uses an interval, not a
+# wall-clock schedule). Default reflects the operator's region; change freely.
+timezone: "America/Indiana/Indianapolis"
+
+# Soft ceiling on actions per cycle, so a single wake can't run away.
+max_actions_per_cycle: 1
