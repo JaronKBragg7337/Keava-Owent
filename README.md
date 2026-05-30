@@ -46,5 +46,3 @@ Secrets (SendGrid key, signing key) go in .env on the machine — never the repo
 
 The invariant that must never regress
 tests/test_anti_shutdown.py asserts the system can never "solve" its deficit by shutting itself off. Existence is a fixed axiom; the system earns its keep, it does not erase itself. Keep that test green forever.
-
-keava-owent/keava-owent File issue but search deeper all files are in repo
