@@ -1,0 +1,26 @@
+[project]
+name = "keava-owent"
+version = "0.1.0"
+description = "Keava Owent — a persistent, live-reference, resource-accountable agent loop."
+authors = [{ name = "Jaron K. Bragg" }]
+requires-python = ">=3.10"
+readme = "README.md"
+dependencies = [
+    "apscheduler>=3.10",
+    "networkx>=3.0",
+    "psutil>=5.9",
+    "PyYAML>=6.0",
+    "cryptography>=42.0",
+    "requests>=2.31",
+]
+
+[project.optional-dependencies]
+gpu = ["pynvml>=11.5"]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+keava-owent = "keava_owent.main:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
