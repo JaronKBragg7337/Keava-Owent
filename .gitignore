@@ -136,4 +136,4 @@ cython_debug/
 .idea/
 .vscode/
 *.swp
-*.swo
+*~
