@@ -1,3 +1,13 @@
+> **Status check — 2026-08-10.** What is committed here is the architecture, not a
+> running system. `keava_owent/main.py` imports fifteen subsystems — store, kernel,
+> live-reference engine, consumption and contribution ledgers, memory graph, recall,
+> spark generator, membrane, approval queue, receipts, transport — and none of those
+> modules are in this repository, so `python -m keava_owent.main` fails at the first
+> import. What *is* here and worth reading: the assembly in `main.py`, the three
+> tests, and the permission membrane in `config/membrane.yaml`, which the system
+> reads and can never write. Everything below is the design, unchanged. This note
+> records the state, and removes nothing.
+
 # Keava Owent
 
 A persistent, live-reference, resource-accountable agent loop. Not a chatbot — a
