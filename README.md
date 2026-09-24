@@ -1,3 +1,13 @@
+> **Status update — 2026-09-24.** The fifteen subsystems the note below says were missing
+> were found on Jaron's machine (an iCloud Drive copy of this repo, same `main.py`) and are
+> now committed: `store`, `kernel`, `livereference`, `ledger`, `memory` (with the relational
+> arrangement and the packing-geometry slot), `spark`, `membrane`, `actions`, `transport`.
+> Checked before committing: no keys, passwords, tokens or addresses in them — secrets are
+> read from environment variables only. `pytest` passes (10 tests). One cycle was run on
+> Jaron's machine with email off (no `KEAVA_SENDGRID_API_KEY`): it chose an EXPLORE goal,
+> found nothing to relate yet on a fresh start, metered its own energy and water, and logged
+> its contribution as recorded-not-scored. Nothing was sent. The note below is kept as written.
+
 > **Status check — 2026-08-10.** What is committed here is the architecture, not a
 > running system. `keava_owent/main.py` imports fifteen subsystems — store, kernel,
 > live-reference engine, consumption and contribution ledgers, memory graph, recall,

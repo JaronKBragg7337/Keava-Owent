@@ -137,3 +137,11 @@ cython_debug/
 .vscode/
 *.swp
 *~
+# Keava's own run output: its database, memory graph, and the local outbox/inbox
+# (the outbox holds what it would have emailed). Never commit these.
+data/*
+!data/.gitkeep
+working/*
+!working/.gitkeep
+canonical/*
+!canonical/.gitkeep
